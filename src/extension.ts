@@ -26,7 +26,7 @@ export function activate(context: vscode.ExtensionContext) {
 		}
 
 		const lines = editor.document.getText().split(editor.document.eol === vscode.EndOfLine.CRLF ? '\n\r' : '\n');
-		const { path } = editor.document.uri;
+		const path = editor.document.fileName;
 
 		if (!editorDecorations[path]) {
 			editorDecorations[path] = {
