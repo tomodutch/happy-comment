@@ -1,7 +1,7 @@
 // The module 'vscode' contains the VS Code extensibility API
 // Import the module and reference it with the alias vscode in your code below
 import * as vscode from 'vscode';
-import compliments from './compliments';
+import { getCompliment } from './compliments';
 type OptionMap = { [key: string]: vscode.DecorationOptions };
 
 const decorationOptions: vscode.DecorationRenderOptions = { after: { margin: '0 0 0 1rem', color: '#7cc36e' } };
@@ -66,13 +66,5 @@ export function activate(context: vscode.ExtensionContext) {
 export function deactivate() { }
 
 function getMessage(line: string) {
-	const compliment = randomElement(compliments);
-	if (line.endsWith('.')) {
-		return compliment;
-	}
-
-	return `and ${compliment.charAt(0).toLowerCase() + compliment.slice(1)}`;
+	return getCompliment();
 }
-
-// https://stackoverflow.com/a/5915122
-const randomElement = (items: any[]) => items[Math.floor(Math.random() * items.length)];
