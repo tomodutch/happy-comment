@@ -2,7 +2,9 @@
 	"name": "happy-comment",
 	"displayName": "happy-comment",
 	"description": "Add positive messages to commits without changing the source code",
+	"repository": "https://github.com/TFarla/happy-comment",
 	"version": "0.0.1",
+	"publisher": "TFarla",
 	"engines": {
 		"vscode": "^1.51.0"
 	},
