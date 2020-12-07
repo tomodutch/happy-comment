@@ -40,7 +40,7 @@ export function activate(context: vscode.ExtensionContext) {
 			const line = (lines[i] || '').trim();
 			const key = `${editor.document.uri}.${i}`;
 			if (line.length > 2 && line.startsWith('//')) {
-				const message = getMessage(line);
+				const message = getMessage(editor.document.languageId, line);
 				if (!editorDecorations[path].options[key]) {
 					editorDecorations[path].options[key] = {
 						range: new vscode.Range(new vscode.Position(i, 1024), new vscode.Position(i, 1024)),
@@ -65,6 +65,6 @@ export function activate(context: vscode.ExtensionContext) {
 // this method is called when your extension is deactivated
 export function deactivate() { }
 
-function getMessage(line: string) {
-	return getCompliment();
+function getMessage(languageId: string, line: string) {
+	return getCompliment({languageId});
 }

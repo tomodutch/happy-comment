@@ -1,2 +1,5 @@
-// https://stackoverflow.com/a/5915122
-export const randomElement = (items: any[]) => items[Math.floor(Math.random() * items.length)];
+export interface ComplimentGeneratorArgs {
+    languageId: string
+}
+
+export type ComplimentGenerator = (args: ComplimentGeneratorArgs) => string;
