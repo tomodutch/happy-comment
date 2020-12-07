@@ -1,4 +1,4 @@
-const gerunds = [
+export const gerunds = [
     'coding',
     'programming'
 ];
